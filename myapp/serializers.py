@@ -89,29 +89,3 @@ class ForgetPasswordSerializer(serializers.ModelSerializer):
             return True
         else:
             raise serializers.ValidationError('Invalid or expired token.')
-        
-# My Notes
-"""
-
-ForgetPasswordSerializer:
-
-validate():
-I check if email not found, if it is not raise a validation error
-
-create_reset():
-secrets.token_urlsafe(30) = It creates random token with strings
-urlsafe_base64_encode(force_bytes(id)) = Here It encodes an id like 1 --> PIY32
-- I create a random token
-- I encode the id
-- I create a link and pass my encoded id and reset token
-- I return
-
-send_reset_email():
-I send an email using:
- send_main(subject=The title, message= I type any message, from_email=The email I am using to send, recipient_list=[here i type the emails I want to send a msg to])
-
- 
-validate_reset():
-- I check if my token == user's token or not, if true then let them create a new password.
-
-"""
